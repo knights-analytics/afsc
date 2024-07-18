@@ -3,14 +3,14 @@ package secretmanager
 import (
 	"context"
 	"fmt"
-	"github.com/viant/afs/file"
-	"github.com/viant/afs/storage"
+	"github.com/knights-analytics/afs/file"
+	"github.com/knights-analytics/afs/storage"
 	secretmanagerpb "google.golang.org/genproto/googleapis/cloud/secretmanager/v1"
 	"os"
 	"strings"
 )
 
-//List lists location assets
+// List lists location assets
 func (s *storager) List(ctx context.Context, resourceID string, options ...storage.Option) ([]os.FileInfo, error) {
 	resource, err := newResource(resourceID)
 	if err != nil {

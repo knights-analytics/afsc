@@ -1,7 +1,7 @@
 # afsc - Abstract File Storage Connectors
 
-[![GoReportCard](https://goreportcard.com/badge/github.com/viant/afsc)](https://goreportcard.com/report/github.com/viant/afsc)
-[![GoDoc](https://godoc.org/github.com/viant/afsc?status.svg)](https://godoc.org/github.com/viant/afsc)
+[![GoReportCard](https://goreportcard.com/badge/github.com/knights-analytics/afsc)](https://goreportcard.com/report/github.com/knights-analytics/afsc)
+[![GoDoc](https://godoc.org/github.com/knights-analytics/afsc?status.svg)](https://godoc.org/github.com/knights-analytics/afsc)
 
 
 This library is compatible with Go 1.11+
@@ -16,7 +16,7 @@ Please refer to [`CHANGELOG.md`](CHANGELOG.md) if you encounter breaking changes
 - [License](#license)
 - [Credits and Acknowledgements](#credits-and-acknowledgements)
 
-This project provides various implementation for [Abstract File Storage](https://github.com/viant/afs)
+This project provides various implementation for [Abstract File Storage](https://github.com/knights-analytics/afs)
 
 ## Usage
 
@@ -25,9 +25,9 @@ This project provides various implementation for [Abstract File Storage](https:/
 import (
 	"context"
 	"fmt"
-	"github.com/viant/afs"
-	_ "github.com/viant/afsc/gs"
-	_ "github.com/viant/afsc/s3"
+	"github.com/knights-analytics/afs"
+	_ "github.com/knights-analytics/afsc/gs"
+	_ "github.com/knights-analytics/afsc/s3"
 	"io/ioutil"
 	"log"
 )
@@ -123,7 +123,7 @@ func main() {
 
 ## GoCover
 
-[![GoCover](https://gocover.io/github.com/viant/afsc)](https://gocover.io/github.com/viant/afsc)
+[![GoCover](https://gocover.io/github.com/knights-analytics/afsc)](https://gocover.io/github.com/knights-analytics/afsc)
 
 ## License
 
@@ -137,4 +137,3 @@ all compatible with Apache License, Version 2. Please see individual files for d
 ## Credits and Acknowledgements
 
 **Library Author:** Adrian Witas
-

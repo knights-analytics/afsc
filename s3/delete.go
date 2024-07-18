@@ -3,12 +3,12 @@ package s3
 import (
 	"context"
 	"github.com/aws/aws-sdk-go/service/s3"
-	"github.com/viant/afs/option"
-	"github.com/viant/afs/storage"
+	"github.com/knights-analytics/afs/option"
+	"github.com/knights-analytics/afs/storage"
 	"path"
 )
 
-//Delete removes an resource
+// Delete removes an resource
 func (s *storager) Delete(ctx context.Context, location string, options ...storage.Option) error {
 	_, err := s.S3.DeleteObjectWithContext(ctx, &s3.DeleteObjectInput{
 		Bucket: &s.bucket,

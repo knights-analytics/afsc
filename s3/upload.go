@@ -8,17 +8,17 @@ import (
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/s3"
 	"github.com/aws/aws-sdk-go/service/s3/s3manager"
+	"github.com/knights-analytics/afs/option"
+	"github.com/knights-analytics/afs/option/content"
+	"github.com/knights-analytics/afs/storage"
 	"github.com/pkg/errors"
-	"github.com/viant/afs/option"
-	"github.com/viant/afs/option/content"
-	"github.com/viant/afs/storage"
 	"io"
 	"io/ioutil"
 	"os"
 	"strings"
 )
 
-//Upload uploads content
+// Upload uploads content
 func (s *storager) Upload(ctx context.Context, destination string, mode os.FileMode, reader io.Reader, options ...storage.Option) error {
 	destination = strings.Trim(destination, "/")
 	err := s.upload(ctx, destination, mode, reader, options)

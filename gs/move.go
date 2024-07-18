@@ -3,9 +3,9 @@ package gs
 import (
 	"context"
 	"fmt"
-	"github.com/viant/afs/file"
-	"github.com/viant/afs/option"
-	"github.com/viant/afs/storage"
+	"github.com/knights-analytics/afs/file"
+	"github.com/knights-analytics/afs/option"
+	"github.com/knights-analytics/afs/storage"
 	gstorage "google.golang.org/api/storage/v1"
 	"path"
 	"strings"

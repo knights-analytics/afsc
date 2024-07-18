@@ -4,8 +4,8 @@ import (
 	"cloud.google.com/go/storage"
 	"context"
 	"fmt"
-	"github.com/viant/afs/option"
-	astorage "github.com/viant/afs/storage"
+	"github.com/knights-analytics/afs/option"
+	astorage "github.com/knights-analytics/afs/storage"
 	"time"
 )
 

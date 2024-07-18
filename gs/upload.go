@@ -4,11 +4,11 @@ import (
 	"bytes"
 	"context"
 	"fmt"
+	"github.com/knights-analytics/afs/object"
+	"github.com/knights-analytics/afs/option"
+	"github.com/knights-analytics/afs/option/content"
+	"github.com/knights-analytics/afs/storage"
 	"github.com/pkg/errors"
-	"github.com/viant/afs/object"
-	"github.com/viant/afs/option"
-	"github.com/viant/afs/option/content"
-	"github.com/viant/afs/storage"
 	"google.golang.org/api/googleapi"
 	gstorage "google.golang.org/api/storage/v1"
 	"io"
@@ -27,12 +27,12 @@ func (s *storager) updateChecksum(object *gstorage.Object, crcHash *option.Crc, 
 	}
 }
 
-//Upload uploads content
+// Upload uploads content
 func (s *storager) Upload(ctx context.Context, destination string, mode os.FileMode, reader io.Reader, options ...storage.Option) (err error) {
 	return s.upload(ctx, destination, mode, reader, options)
 }
 
-//Upload uploads content
+// Upload uploads content
 func (s *storager) upload(ctx context.Context, destination string, mode os.FileMode, reader io.Reader, options []storage.Option) error {
 	destination = strings.Trim(destination, "/")
 	gobject := &gstorage.Object{
@@ -134,7 +134,7 @@ func updateMetaContent(meta *content.Meta, gobject *gstorage.Object) {
 }
 
 func (s *storager) uploadWithRetires(ctx context.Context, call *gstorage.ObjectsInsertCall, data []byte) (object *gstorage.Object, err error) {
-	if len(data) == 0 { //no data - thus no retries once reader is exhausted
+	if len(data) == 0 { // no data - thus no retries once reader is exhausted
 		return call.Do()
 	}
 	err = runWithRetries(ctx, func() error {

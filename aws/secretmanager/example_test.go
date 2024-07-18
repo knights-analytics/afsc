@@ -3,9 +3,9 @@ package secretmanager_test
 import (
 	"context"
 	"fmt"
-	"github.com/viant/afs"
-	"github.com/viant/afs/file"
-	_ "github.com/viant/afsc/aws"
+	"github.com/knights-analytics/afs"
+	"github.com/knights-analytics/afs/file"
+	_ "github.com/knights-analytics/afsc/aws"
 	"log"
 	"strings"
 )

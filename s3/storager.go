@@ -9,11 +9,11 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/s3"
+	"github.com/knights-analytics/afs/option"
+	"github.com/knights-analytics/afs/storage"
+	"github.com/knights-analytics/afs/url"
+	"github.com/knights-analytics/afsc/logger"
 	"github.com/pkg/errors"
-	"github.com/viant/afs/option"
-	"github.com/viant/afs/storage"
-	"github.com/viant/afs/url"
-	"github.com/viant/afsc/logger"
 )
 
 const (
@@ -31,7 +31,7 @@ type storager struct {
 	logger *option.Logger
 }
 
-//Close closes storager
+// Close closes storager
 func (s *storager) Close() error {
 	return nil
 }
@@ -43,7 +43,7 @@ func (s storager) logF(format string, args ...interface{}) {
 	s.logger.Logf(format, args...)
 }
 
-//FilterAuthOptions filters auth options
+// FilterAuthOptions filters auth options
 func (s storager) FilterAuthOptions(options []storage.Option) []storage.Option {
 	var authOptions = make([]storage.Option, 0)
 	if awsConfig, _ := filterAuthOption(options); awsConfig != nil {
@@ -52,7 +52,7 @@ func (s storager) FilterAuthOptions(options []storage.Option) []storage.Option {
 	return authOptions
 }
 
-//FilterAuthOptions filters auth options
+// FilterAuthOptions filters auth options
 func filterAuthOption(options []storage.Option) (*aws.Config, error) {
 	config := &aws.Config{}
 	if _, ok := option.Assign(options, &config); ok {
@@ -74,13 +74,13 @@ func filterAuthOption(options []storage.Option) (*aws.Config, error) {
 	return nil, nil
 }
 
-//IsAuthChanged return true if auth has changes
+// IsAuthChanged return true if auth has changes
 func (s *storager) IsAuthChanged(authOptions []storage.Option) bool {
 	changed := s.isAuthChanged(authOptions)
 	return changed
 }
 
-//IsAuthChanged return true if auth has changes
+// IsAuthChanged return true if auth has changes
 func (s *storager) isAuthChanged(authOptions []storage.Option) bool {
 	if len(authOptions) == 0 {
 		return false

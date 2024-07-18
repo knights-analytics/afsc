@@ -2,10 +2,10 @@ package gs
 
 import (
 	"context"
+	"github.com/knights-analytics/afs/option"
+	"github.com/knights-analytics/afs/option/content"
+	"github.com/knights-analytics/afs/storage"
 	"github.com/pkg/errors"
-	"github.com/viant/afs/option"
-	"github.com/viant/afs/option/content"
-	"github.com/viant/afs/storage"
 	gstorage "google.golang.org/api/storage/v1"
 	"os"
 	"strings"

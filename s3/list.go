@@ -5,17 +5,17 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/credentials"
 	"github.com/aws/aws-sdk-go/service/s3"
+	"github.com/knights-analytics/afs/file"
+	"github.com/knights-analytics/afs/option"
+	"github.com/knights-analytics/afs/storage"
 	"github.com/pkg/errors"
-	"github.com/viant/afs/file"
-	"github.com/viant/afs/option"
-	"github.com/viant/afs/storage"
 	"os"
 	"path"
 	"strings"
 	"time"
 )
 
-//List list directory or returns a file info
+// List list directory or returns a file info
 func (s *storager) List(ctx context.Context, location string, options ...storage.Option) ([]os.FileInfo, error) {
 	location = strings.Trim(location, "/")
 	matcher, page := option.GetListOptions(options)

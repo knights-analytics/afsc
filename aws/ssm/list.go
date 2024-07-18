@@ -4,13 +4,13 @@ import (
 	"context"
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/ssm"
-	"github.com/viant/afs/file"
-	"github.com/viant/afs/storage"
+	"github.com/knights-analytics/afs/file"
+	"github.com/knights-analytics/afs/storage"
 	"os"
 	"time"
 )
 
-//List lists secret resources
+// List lists secret resources
 func (s *storager) List(ctx context.Context, resourceID string, options ...storage.Option) ([]os.FileInfo, error) {
 	var result []os.FileInfo
 	resource, err := newResource(resourceID)

@@ -2,7 +2,7 @@ package gs
 
 import (
 	"context"
-	"github.com/viant/afs/base"
+	"github.com/knights-analytics/afs/base"
 )
 
 func runWithRetries(ctx context.Context, f func() error, storager *storager) (err error) {

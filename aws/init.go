@@ -1,7 +1,7 @@
 package aws
 
 import (
-	"github.com/viant/afs"
+	"github.com/knights-analytics/afs"
 )
 
 func init() {

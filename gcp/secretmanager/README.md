@@ -9,9 +9,9 @@ package mypkg
 import (
 	"context"
 	"fmt"
-	"github.com/viant/afs"
-	"github.com/viant/afs/file"
-	_ "github.com/viant/afsc/gcp"
+	"github.com/knights-analytics/afs"
+	"github.com/knights-analytics/afs/file"
+	_ "github.com/knights-analytics/afsc/gcp"
 	"log"
 	"strings"
 )

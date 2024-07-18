@@ -3,9 +3,9 @@ package afsc
 import (
 	"context"
 	"fmt"
-	"github.com/viant/afs"
-	_ "github.com/viant/afsc/gs"
-	_ "github.com/viant/afsc/s3"
+	"github.com/knights-analytics/afs"
+	_ "github.com/knights-analytics/afsc/gs"
+	_ "github.com/knights-analytics/afsc/s3"
 
 	"io/ioutil"
 	"log"

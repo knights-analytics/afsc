@@ -10,10 +10,10 @@ import (
 	"strings"
 
 	"github.com/aws/aws-sdk-go/aws"
-	"github.com/viant/afs"
-	"github.com/viant/afs/option"
-	"github.com/viant/afsc/auth"
-	"github.com/viant/afsc/s3"
+	"github.com/knights-analytics/afs"
+	"github.com/knights-analytics/afs/option"
+	"github.com/knights-analytics/afsc/auth"
+	"github.com/knights-analytics/afsc/s3"
 )
 
 func ExampleAfsService() {
@@ -102,7 +102,7 @@ func ExampleNewAuthConfig() {
 	}
 
 	ctx := context.Background()
-	// add default import _ "github.com/viant/afsc/s3"
+	// add default import _ "github.com/knights-analytics/afsc/s3"
 
 	service := afs.New()
 	reader, err := service.OpenURL(ctx, "s3://my-bucket/myfolder/asset.txt", authConfig)

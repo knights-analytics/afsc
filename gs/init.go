@@ -1,7 +1,7 @@
 package gs
 
 import (
-	"github.com/viant/afs"
+	"github.com/knights-analytics/afs"
 	"github.com/viant/toolbox"
 	"os"
 )

@@ -3,8 +3,8 @@ package gs
 import (
 	"context"
 	"fmt"
+	"github.com/knights-analytics/afs/base"
 	"github.com/pkg/errors"
-	"github.com/viant/afs/base"
 	"google.golang.org/api/storage/v1"
 	"io"
 	"net/http"

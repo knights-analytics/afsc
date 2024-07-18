@@ -8,18 +8,18 @@ import (
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/s3"
 	"github.com/aws/aws-sdk-go/service/s3/s3manager"
+	"github.com/knights-analytics/afs/base"
+	"github.com/knights-analytics/afs/option"
 	"github.com/pkg/errors"
-	"github.com/viant/afs/base"
-	"github.com/viant/afs/option"
 	"strings"
 	"time"
 
-	"github.com/viant/afs/storage"
+	"github.com/knights-analytics/afs/storage"
 	"io"
 	"io/ioutil"
 )
 
-//Open return content reader and hash values if md5 or crc option is supplied or error
+// Open return content reader and hash values if md5 or crc option is supplied or error
 func (s *storager) Open(ctx context.Context, location string, options ...storage.Option) (io.ReadCloser, error) {
 	started := time.Now()
 	defer func() {

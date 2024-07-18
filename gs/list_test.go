@@ -3,8 +3,8 @@ package gs
 import (
 	"context"
 	"fmt"
+	"github.com/knights-analytics/afs/asset"
 	"github.com/stretchr/testify/assert"
-	"github.com/viant/afs/asset"
 	"testing"
 )
 

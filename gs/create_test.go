@@ -4,9 +4,9 @@ import (
 	"bytes"
 	"context"
 	"fmt"
+	"github.com/knights-analytics/afs/asset"
+	"github.com/knights-analytics/afs/url"
 	"github.com/stretchr/testify/assert"
-	"github.com/viant/afs/asset"
-	"github.com/viant/afs/url"
 	"io"
 	"testing"
 )

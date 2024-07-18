@@ -6,9 +6,9 @@ import (
 	"io"
 	"os"
 
+	"github.com/knights-analytics/afs/option"
+	"github.com/knights-analytics/afs/storage"
 	"github.com/pkg/errors"
-	"github.com/viant/afs/option"
-	"github.com/viant/afs/storage"
 	"golang.org/x/oauth2/jwt"
 )
 

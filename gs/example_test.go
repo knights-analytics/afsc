@@ -4,10 +4,10 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"github.com/viant/afs"
-	"github.com/viant/afs/option"
-	"github.com/viant/afsc/auth"
-	"github.com/viant/afsc/gs"
+	"github.com/knights-analytics/afs"
+	"github.com/knights-analytics/afs/option"
+	"github.com/knights-analytics/afsc/auth"
+	"github.com/knights-analytics/afsc/gs"
 	goption "google.golang.org/api/option"
 	"io/ioutil"
 	"log"
@@ -56,7 +56,7 @@ func ExampleNew() {
 	fmt.Printf("data: %s\n", data)
 }
 
-//Example_Storager storager usage example (uses path rather then URLs)
+// Example_Storager storager usage example (uses path rather then URLs)
 func Example_Storager() {
 
 	ctx := context.Background()
@@ -103,7 +103,7 @@ func ExampleNewJwtConfig() {
 		log.Fatal(err)
 
 	}
-	//add default import _ "github.com/viant/afsc/gs"
+	// add default import _ "github.com/knights-analytics/afsc/gs"
 
 	service := afs.New()
 	reader, err := service.OpenURL(ctx, "gs://my-bucket/myfolder/asset.txt", jwtConfig)

@@ -3,14 +3,14 @@ package ssm
 import (
 	"context"
 	"github.com/aws/aws-sdk-go/service/ssm"
-	"github.com/viant/afs/storage"
+	"github.com/knights-analytics/afs/storage"
 	"io/ioutil"
 	"strings"
 
 	"io"
 )
 
-//Open returns a reader closer for supplied resources
+// Open returns a reader closer for supplied resources
 func (s *storager) Open(ctx context.Context, resourceID string, options ...storage.Option) (io.ReadCloser, error) {
 	resource, err := newResource(resourceID)
 	if err != nil {

@@ -1,8 +1,8 @@
 package gs
 
 import (
-	"github.com/viant/afs/option"
-	"github.com/viant/afs/storage"
+	"github.com/knights-analytics/afs/option"
+	"github.com/knights-analytics/afs/storage"
 )
 
 type matcher func(generation int64)

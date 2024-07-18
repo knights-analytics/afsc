@@ -3,10 +3,10 @@ package s3
 import (
 	"context"
 	"fmt"
+	"github.com/knights-analytics/afs/asset"
+	"github.com/knights-analytics/afs/matcher"
+	"github.com/knights-analytics/afs/storage"
 	"github.com/stretchr/testify/assert"
-	"github.com/viant/afs/asset"
-	"github.com/viant/afs/matcher"
-	"github.com/viant/afs/storage"
 	"testing"
 )
 

@@ -4,13 +4,13 @@ import (
 	"context"
 	"fmt"
 	"github.com/aws/aws-sdk-go/aws/awserr"
+	"github.com/knights-analytics/afs/base"
+	"github.com/knights-analytics/afs/file"
+	"github.com/knights-analytics/afs/option"
+	"github.com/knights-analytics/afs/storage"
+	"github.com/knights-analytics/afs/url"
+	"github.com/knights-analytics/afsc/logger"
 	"github.com/pkg/errors"
-	"github.com/viant/afs/base"
-	"github.com/viant/afs/file"
-	"github.com/viant/afs/option"
-	"github.com/viant/afs/storage"
-	"github.com/viant/afs/url"
-	"github.com/viant/afsc/logger"
 )
 
 const (
@@ -41,7 +41,7 @@ func (m *manager) copyInMemory(ctx context.Context, sourceURL, destURL string, o
 	return m.Upload(ctx, destURL, file.DefaultFileOsMode, reader, uploadOptions...)
 }
 
-//Move moves data from source to dest
+// Move moves data from source to dest
 func (m *manager) Copy(ctx context.Context, sourceURL, destURL string, options ...storage.Option) error {
 	gsStorager, err := m.Storager(ctx, sourceURL, options)
 	if err != nil {
@@ -59,7 +59,7 @@ func (m *manager) Copy(ctx context.Context, sourceURL, destURL string, options .
 	if !hasKey {
 		err = rawStorager.Copy(ctx, sourcePath, destBucket, destPath, options...)
 	}
-	if isFallbackError(err) || hasKey { //simulate move operation in process
+	if isFallbackError(err) || hasKey { // simulate move operation in process
 		if err != nil {
 			logger.Logf("fallback copy: %v", err)
 		}
@@ -72,7 +72,7 @@ func (m *manager) Copy(ctx context.Context, sourceURL, destURL string, options .
 	return err
 }
 
-//ErrorCode returns error code
+// ErrorCode returns error code
 func (m *manager) ErrorCode(err error) int {
 	if err == nil {
 		return 0
@@ -87,7 +87,7 @@ func (m *manager) ErrorCode(err error) int {
 	return 0
 }
 
-//Move moves data from source to dest
+// Move moves data from source to dest
 func (m *manager) Move(ctx context.Context, sourceURL, destURL string, options ...storage.Option) error {
 	s3Storager, err := m.Storager(ctx, sourceURL, options)
 	if err != nil {
@@ -105,7 +105,7 @@ func (m *manager) Move(ctx context.Context, sourceURL, destURL string, options .
 	if !hasKey {
 		err = rawStorager.Move(ctx, sourcePath, destBucket, destPath, options...)
 	}
-	if isFallbackError(err) || hasKey { //simulate move operation in process
+	if isFallbackError(err) || hasKey { // simulate move operation in process
 		if err != nil {
 			logger.Logf("fallback move: %v", err)
 		}
@@ -127,7 +127,7 @@ func newManager(options ...storage.Option) *manager {
 	return result
 }
 
-//New creates s3 manager
+// New creates s3 manager
 func New(options ...storage.Option) storage.Manager {
 	return newManager(options...)
 }

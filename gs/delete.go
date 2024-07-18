@@ -2,13 +2,13 @@ package gs
 
 import (
 	"context"
-	"github.com/viant/afs/option"
-	"github.com/viant/afs/storage"
+	"github.com/knights-analytics/afs/option"
+	"github.com/knights-analytics/afs/storage"
 	"path"
 	"strings"
 )
 
-//Delete removes an resource
+// Delete removes an resource
 func (s *storager) Delete(ctx context.Context, location string, options ...storage.Option) (err error) {
 	location = strings.Trim(location, "/")
 	if location == "" {

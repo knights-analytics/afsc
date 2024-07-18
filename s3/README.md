@@ -7,8 +7,8 @@
 import (
 	"context"
 	"fmt"
-	"github.com/viant/afs"
-	_ "github.com/viant/afsc/s3"
+	"github.com/knights-analytics/afs"
+	_ "github.com/knights-analytics/afsc/s3"
 	"io/ioutil"
 	"log"
 )
@@ -82,7 +82,7 @@ _Example:_
 
 ## Options
 
-- [Md5](https://github.com/viant/afs/blob/master/option/md5.go): when uploading content with this option, supplied option is used for Put ContentMD5, otherwise
+- [Md5](https://github.com/knights-analytics/afs/blob/master/option/md5.go): when uploading content with this option, supplied option is used for Put ContentMD5, otherwise
 md5 is computed for supplied content.
 
 - aws.Config: s3 client.

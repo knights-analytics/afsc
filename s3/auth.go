@@ -14,17 +14,17 @@ import (
 	"github.com/aws/aws-sdk-go/aws/credentials"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/sts"
+	"github.com/knights-analytics/afs/option"
+	"github.com/knights-analytics/afs/storage"
 	"github.com/pkg/errors"
-	"github.com/viant/afs/option"
-	"github.com/viant/afs/storage"
 )
 
-//AwsConfigProvider represents aws config provider
+// AwsConfigProvider represents aws config provider
 type AwsConfigProvider interface {
 	AwsConfig() (*aws.Config, error)
 }
 
-//AuthConfig represents an auth config
+// AuthConfig represents an auth config
 type AuthConfig struct {
 	Key       string    `json:",omitempty"`
 	Secret    string    `json:",omitempty"`
@@ -35,7 +35,7 @@ type AuthConfig struct {
 	RoleArn   string    `json:",omitempty"`
 }
 
-//AwsConfig returns aws config
+// AwsConfig returns aws config
 func (c *AuthConfig) AwsConfig() (*aws.Config, error) {
 	sess, err := session.NewSession(&aws.Config{
 		Region:      aws.String(os.Getenv("AWS_REGION")),
@@ -79,7 +79,7 @@ func (c *AuthConfig) AwsConfig() (*aws.Config, error) {
 	return aws.NewConfig().WithRegion(c.Region).WithCredentials(awsCredentials), nil
 }
 
-//NewAuthConfig returns new auth config from location
+// NewAuthConfig returns new auth config from location
 func NewAuthConfig(options ...storage.Option) (*AuthConfig, error) {
 	location := &option.Location{}
 	var JSONPayload = make([]byte, 0)

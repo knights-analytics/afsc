@@ -2,7 +2,7 @@ package secretmanager
 
 import (
 	"context"
-	"github.com/viant/afs/storage"
+	"github.com/knights-analytics/afs/storage"
 	"google.golang.org/genproto/googleapis/cloud/secretmanager/v1"
 	secretmanagerpb "google.golang.org/genproto/googleapis/cloud/secretmanager/v1"
 	"io"
@@ -10,7 +10,7 @@ import (
 	"os"
 )
 
-//Upload uploads
+// Upload uploads
 func (s *storager) Upload(ctx context.Context, destination string, mode os.FileMode, reader io.Reader, options ...storage.Option) error {
 	hasSecret, _ := s.Exists(ctx, destination)
 	resource, err := newResource(destination)

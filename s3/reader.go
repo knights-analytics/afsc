@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"github.com/aws/aws-sdk-go/service/s3"
 	"github.com/aws/aws-sdk-go/service/s3/s3manager"
+	"github.com/knights-analytics/afs/base"
 	"github.com/pkg/errors"
-	"github.com/viant/afs/base"
 	"io"
 )
 
@@ -51,7 +51,7 @@ func (t *reader) Read(dest []byte) (int, error) {
 	return copied, nil
 }
 
-//NewReadSeeker create a reader seeker
+// NewReadSeeker create a reader seeker
 func NewReadSeeker(ctx context.Context, input *s3.GetObjectInput, downloader *s3manager.Downloader, partSize, size int) io.ReadSeeker {
 	return &reader{
 		ctx:        ctx,

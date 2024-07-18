@@ -6,7 +6,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/ssm"
-	"github.com/viant/afs/storage"
+	"github.com/knights-analytics/afs/storage"
 	"os"
 	"sync"
 )
@@ -18,7 +18,7 @@ type storager struct {
 	mux    sync.Mutex
 }
 
-//Exists returns true if location exists
+// Exists returns true if location exists
 func (s *storager) Exists(ctx context.Context, resourceID string, options ...storage.Option) (bool, error) {
 	resource, err := newResource(resourceID)
 	if err != nil {
@@ -29,7 +29,7 @@ func (s *storager) Exists(ctx context.Context, resourceID string, options ...sto
 	return param != nil, nil
 }
 
-//Get returns a file info for supplied location
+// Get returns a file info for supplied location
 func (s *storager) Get(ctx context.Context, location string, options ...storage.Option) (os.FileInfo, error) {
 	list, err := s.List(ctx, location, options...)
 	if err != nil {
@@ -41,12 +41,12 @@ func (s *storager) Get(ctx context.Context, location string, options ...storage.
 	return list[0], nil
 }
 
-//Delete deletes locations
+// Delete deletes locations
 func (s *storager) Delete(ctx context.Context, location string, options ...storage.Option) error {
 	return fmt.Errorf("unsupported operation")
 }
 
-//Close closes storage
+// Close closes storage
 func (s *storager) Close() error {
 	return nil
 }
@@ -62,7 +62,7 @@ func (s *storager) systemManager(region string) *ssm.SSM {
 	return s.client
 }
 
-//NewStorager create a new secreate manager storager
+// NewStorager create a new secreate manager storager
 func NewStorager(ctx context.Context, baseURL string, options ...storage.Option) (*storager, error) {
 	result := &storager{}
 	var err error
