@@ -46,9 +46,10 @@ func (s *Storager) upload(ctx context.Context, destination string, mode os.FileM
 	option.Assign(options, &md5Hash, &key, &checksum, &meta, &serverSideEncryption, &stream, &grant, &acl)
 	if !checksum.Skip {
 		input := &s3.PutObjectInput{
-			Bucket:   &s.bucket,
-			Key:      aws.String(destination),
-			Metadata: map[string]string{},
+			Bucket:            &s.bucket,
+			Key:               aws.String(destination),
+			Metadata:          map[string]string{},
+			ChecksumAlgorithm: types.ChecksumAlgorithmCrc32,
 		}
 
 		updateMetaContent(meta, input)
@@ -110,10 +111,11 @@ func (s *Storager) upload(ctx context.Context, destination string, mode os.FileM
 		uploader.PartSize = int64(stream.PartSize)
 	}
 	input := &s3.PutObjectInput{
-		Bucket:   aws.String(s.bucket),
-		Key:      aws.String(destination),
-		Body:     reader,
-		Metadata: map[string]string{},
+		Bucket:            aws.String(s.bucket),
+		Key:               aws.String(destination),
+		Body:              reader,
+		Metadata:          map[string]string{},
+		ChecksumAlgorithm: types.ChecksumAlgorithmCrc32,
 	}
 	if grant.FullControl != "" {
 		input.GrantFullControl = &grant.FullControl
