@@ -1,0 +1,10 @@
+package abs
+
+import (
+	"github.com/viant/afs/storage"
+)
+
+// Provider returns an azure blob storage manager
+func Provider(options ...storage.Option) (storage.Manager, error) {
+	return New(options...), nil
+}
